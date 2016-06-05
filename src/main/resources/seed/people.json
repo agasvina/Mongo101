@@ -1,0 +1,61 @@
+[
+  {
+    "id": "owner:0001",
+    "username": "owner",
+    "password": "password",
+    "section" : {
+      "value": "ALL"
+    },
+    "role": "OWNER"
+  },
+  {
+    "id": "chief:0001",
+    "username": "chief",
+    "password": "password",
+    "hired" : true,
+    "section" : {
+      "value": "ALL"
+    },
+    "role": "CHIEF"
+  },
+  {
+    "id": "editor:0001",
+    "username": "editorLaughter",
+    "password": "password",
+    "hired" : true,
+    "section" : {
+      "value": "LAUGHTER"
+    },
+    "role": "EDITOR"
+  },
+  {
+    "id": "editor:0002",
+    "username": "editorFrienship",
+    "password": "password",
+    "hired" : true,
+    "section" : {
+      "value": "FRIENDSHIP"
+    },
+    "role": "EDITOR"
+  },
+  {
+    "id": "reporter:0001",
+    "username": "reporterLaughter",
+    "password": "password",
+    "hired" : true,
+    "section" : {
+      "value": "LAUGHTER"
+    },
+    "role": "REPORTER"
+  },
+  {
+    "id": "reporter:0002",
+    "username": "reporterFrienship",
+    "password": "password",
+    "hired" : true,
+    "section" : {
+      "value": "FRIENSHIP"
+    },
+    "role": "REPORTER"
+  }
+]

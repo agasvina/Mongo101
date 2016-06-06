@@ -1,26 +1,19 @@
-# Starting from the Openjdk-8 container
-FROM java:openjdk-8-jdk
+FROM java:8 
 
-# Set the WORKDIR. All following commands will be run in this directory.
-WORKDIR /app
+# Install maven
+RUN apt-get update  
+RUN apt-get install -y maven
 
-# Copying all gradle files necessary to install gradle with gradlew
-COPY gradle gradle
-COPY \
-  build.gradle \
-  gradle.properties \
-  gradlew \
-  settings.gradle \
-  ./
+WORKDIR /code
 
-# Install the gradle version used in the repository through gradlew
-RUN ["ls"]
-# Run gradle assemble to install dependencies before adding the whole repository
-#RUN gradle assemble
+# Prepare by downloading dependencies
+ADD pom.xml /code/pom.xml  
+RUN ["mvn", "dependency:resolve"]  
+RUN ["mvn", "verify"]
 
-ADD . ./
-ADD src ./
+# Adding source, compile and package into a fat jar
+ADD src /code/src  
+RUN ["mvn", "package"]
 
-EXPOSE 8080
-
-RUN ["./gradlew", "run"]
+EXPOSE 8080  
+CMD ["/usr/lib/jvm/java-8-openjdk-amd64/bin/java", "-jar", "target/lucareto-jar-with-dependencies.jar"] 

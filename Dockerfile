@@ -14,7 +14,6 @@ COPY \
   ./
 
 # Install the gradle version used in the repository through gradlew
-RUN ./gradlew
 RUN ["ls"]
 # Run gradle assemble to install dependencies before adding the whole repository
 #RUN gradle assemble

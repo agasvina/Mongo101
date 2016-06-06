@@ -2,7 +2,7 @@
 FROM java:openjdk-8-jdk
 
 # Set the WORKDIR. All following commands will be run in this directory.
-WORKDIR /app
+WORKDIR /
 
 # Copying all gradle files necessary to install gradle with gradlew
 COPY gradle gradle
